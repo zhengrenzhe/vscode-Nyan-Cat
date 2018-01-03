@@ -84,9 +84,6 @@ When after you changed the configuration, you should rerun `Nyan Cat: refresh st
 #### nyaninja
 ![nyaninja](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/nyaninja.gif)
 
-#### paddy-1
-![paddy-1](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/paddy-1.gif)
-
 #### paddy
 ![paddy](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/paddy.gif)
 

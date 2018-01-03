@@ -2,16 +2,20 @@
     "name": "nyan-cat",
     "displayName": "Nyan Cat",
     "description": "Nyan Cat for vscode",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "zhengrenzhe",
     "engines": {
         "vscode": "^1.19.0"
     },
+    "icon": "icon.png",
     "categories": [
         "Other"
     ],
     "activationEvents": [
         "*"
+    ],
+    "keywords": [
+        "Nyan Cat"
     ],
     "contributes": {
         "commands":[
