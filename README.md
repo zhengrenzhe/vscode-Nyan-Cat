@@ -68,17 +68,8 @@ This will random display Nyan Cat.
 #### breakfast
 ![breakfast](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/breakfast.gif)
 
-#### daft
-![daft](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/daft.gif)
-
-#### dub
-![dub](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/dub.gif)
-
 #### easter
 ![easter](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/easter.gif)
-
-#### glitch
-![glitch](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/glitch.gif)
 
 #### grumpy
 ![grumpy](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/grumpy.gif)
@@ -88,9 +79,6 @@ This will random display Nyan Cat.
 
 #### jazz
 ![jazz](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/jazz.gif)
-
-#### melonbird
-![melonbird](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/melonbird.gif)
 
 #### mexinyan
 ![mexinyan](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/mexinyan.gif)
@@ -113,29 +101,11 @@ This will random display Nyan Cat.
 #### pikanyan
 ![pikanyan](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/pikanyan.gif)
 
-#### pumpkin
-![pumpkin](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/pumpkin.gif)
-
-#### rasta
-![rasta](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/rasta.gif)
-
-#### retro
-![retro](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/retro.gif)
-
 #### sadnyan
 ![sadnyan](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/sadnyan.gif)
 
 #### slomo
 ![slomo](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/slomo.gif)
-
-#### starsheep
-![starsheep](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/starsheep.gif)
-
-#### tacnayn
-![tacnayn](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/tacnayn.gif)
-
-#### tacodog
-![tacodog](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/tacodog.gif)
 
 #### technyancolor
 ![technyancolor](https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/technyancolor.gif)

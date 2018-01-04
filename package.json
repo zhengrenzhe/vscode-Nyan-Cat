@@ -15,7 +15,7 @@
         "type": "git",
         "url": "https://github.com/zhengrenzhe/vscode-Nyan-Cat.git"
     },
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "zhengrenzhe",
     "engines": {
         "vscode": "^1.19.0"

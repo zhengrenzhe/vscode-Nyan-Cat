@@ -1,5 +1,5 @@
 ; (() => {
-    const nameList = ["GB", "bday", "breakfast", "daft", "dub", "easter", "glitch", "grumpy", "jacksnyan", "jazz", "melonbird", "mexinyan", "mummy", "nyan", "nyancoin", "nyaninja", "paddy", "pikanyan", "pumpkin", "rasta", "retro", "sadnyan", "slomo", "starsheep", "tacnayn", "tacodog", "technyancolor", "uhmurica", "vday", "xmas", "zombie"];
+    const nameList = ["GB", "bday", "breakfast", "easter", "grumpy", "jacksnyan", "jazz", "mexinyan", "mummy", "nyan", "nyancoin", "nyaninja", "paddy", "pikanyan", "sadnyan", "slomo", "technyancolor", "uhmurica", "vday", "xmas", "zombie"];
 
     let timer = setInterval(() => {
         let nyan = document.querySelector('.statusbar-item span[title="Nyan Cat"]');

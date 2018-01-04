@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "nyan-cat" extension will be documented in this file.
 
+## [0.0.4] - 2018-01-04
+- Fix name list error
+
 ## [0.0.3] - 2018-01-04
 - Fix \n error
 - Fix uninstall error
