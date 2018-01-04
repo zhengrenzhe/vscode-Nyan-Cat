@@ -15,7 +15,7 @@
         "type": "git",
         "url": "https://github.com/zhengrenzhe/vscode-Nyan-Cat.git"
     },
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "zhengrenzhe",
     "engines": {
         "vscode": "^1.19.0"
@@ -39,6 +39,10 @@
             {
                 "command": "extension.NyanCatUninstall",
                 "title": "Nyan Cat: ready to uninstall Nyan Cat"
+            },
+            {
+                "command": "extension.NyanCatReload",
+                "title": "Nyan Cat: reload Nyan Cat"
             }
         ],
         "configuration":{

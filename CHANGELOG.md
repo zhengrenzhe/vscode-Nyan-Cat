@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "nyan-cat" extension will be documented in this file.
 
+## [0.0.5] - 2018-01-04
+- Add reload command
+
 ## [0.0.4] - 2018-01-04
 - Fix name list error
 

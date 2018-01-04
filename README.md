@@ -31,9 +31,15 @@ After install, VSCode maybe display `Your Code installation appears to be corrup
 
 在安装后，VSCode可能会提示`VSCode 安装文件被破坏，请重新安装`，这是由于API限制的原因，扩展必须注入js文件到VSCode里来执行相关功能，这导致了出现这个提示，但它是无害的，这不会对VSCode有任何影响，可以直接忽略。
 
+**IMPORTANT 3**
+
+After upgrade extension, you must be press `shift + command + p`, search `Nyan Cat: reload Nyan Cat` and execute it, this will reload Nyan Cat, it's important.
+
+在更新Nyan Cat后，你必须按下`shift + command + p`，输入`Nyan Cat: reload Nyan Cat`并执行来手动更新注入代码。
+
 ## Uninstall
 
-Before you actually uninstall, press `shift + command + p`, search `Nyan Cat: ready to uninstall Nyan Cat` and execute it, 
+Before you actually uninstall, you must be press `shift + command + p`, search `Nyan Cat: ready to uninstall Nyan Cat` and execute it, 
 this will restore the file what you modified during the installation, it's important.
 
 在实际卸载前，按下`shift + command + p`，输入`Nyan Cat: ready to uninstall Nyan Cat`并执行，这将恢复在安装过程中修改的文件，这一步很重要。

@@ -11,22 +11,10 @@ export function activate(context: vscode.ExtensionContext) {
     const htmlBackupPath = normalize(`${htmlDirPath}/index-nyan-cat-backup.html`);
 
     // backup index.html
-    try {
-        fs.statSync(htmlBackupPath);
-    } catch (err) {
-        if (err) {
-            fs.writeFileSync(htmlBackupPath, fs.readFileSync(htmlFilePath));
-        }
-    }
+    backup();
 
     // inject js, add unsafe-inline csp
-    let htmlFileContent = fs.readFileSync(htmlFilePath, 'utf-8');
-    if (!htmlFileContent.includes('nyan-cat.js')) {
-        const inject = `<script src="${f(__dirname + '/nyan-cat.js')}"></script>`;
-        htmlFileContent = htmlFileContent.replace('</html>', `${inject}\n</html>`);
-        htmlFileContent = htmlFileContent.replace("script-src 'self'", "script-src 'self' 'unsafe-inline'");
-        fs.writeFileSync(htmlFilePath, htmlFileContent, 'utf-8');
-    }
+    injectScript();
 
     let item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
     item.text = '             ';
@@ -39,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
     // manual inject configuration command
     let refreshCMD = vscode.commands.registerCommand('extension.NyanCatRefresh', () => {
         injectConfiguration();
-        vscode.window.showInformationMessage("Nyan Cat: refresh successful, reload to take effect.", 'Reload Window').then(msg => {
+        vscode.window.showInformationMessage("Nyan Cat: refresh successful, reload Window to take effect.", 'Reload Window').then(msg => {
             msg === 'Reload Window' && vscode.commands.executeCommand("workbench.action.reloadWindow");
         });
     });
@@ -50,8 +38,45 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showInformationMessage('Ready to uninstall Nyan Cat completed!');
     });
 
+    // reload command
+    let reloadCMD = vscode.commands.registerCommand('extension.NyanCatReload', () => {
+        try {
+            fs.statSync(htmlBackupPath);
+        } catch (err) {
+            if (err) return;
+        }
+        prepareUninstall();
+        backup();
+        injectScript();
+        injectConfiguration();
+        vscode.window.showInformationMessage("Nyan Cat: reload successful, reload Window to take effect.", 'Reload Window').then(msg => {
+            msg === 'Reload Window' && vscode.commands.executeCommand("workbench.action.reloadWindow");
+        });
+    })
+
     context.subscriptions.push(refreshCMD);
     context.subscriptions.push(uninstallCMD);
+    context.subscriptions.push(reloadCMD);
+
+    function backup() {
+        try {
+            fs.statSync(htmlBackupPath);
+        } catch (err) {
+            if (err) {
+                fs.writeFileSync(htmlBackupPath, fs.readFileSync(htmlFilePath));
+            }
+        }
+    }
+
+    function injectScript() {
+        let htmlFileContent = fs.readFileSync(htmlFilePath, 'utf-8');
+        if (!htmlFileContent.includes('nyan-cat.js')) {
+            const inject = `<script src="${f(__dirname + '/nyan-cat.js')}"></script>`;
+            htmlFileContent = htmlFileContent.replace('</html>', `${inject}\n</html>`);
+            htmlFileContent = htmlFileContent.replace("script-src 'self'", "script-src 'self' 'unsafe-inline'");
+            fs.writeFileSync(htmlFilePath, htmlFileContent, 'utf-8');
+        }
+    }
 
     function injectConfiguration() {
         const config = vscode.workspace.getConfiguration('NyanCat');
