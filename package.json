@@ -2,7 +2,20 @@
     "name": "nyan-cat",
     "displayName": "Nyan Cat",
     "description": "Nyan Cat for vscode",
-    "version": "0.0.2",
+    "author":{
+        "name": "zhengrenzhe",
+        "email": "zhengrenzhe.niujie@gmail.com",
+        "url": "http://zrz0f.com"
+    },
+    "homepage": "https://github.com/zhengrenzhe/vscode-Nyan-Cat",
+    "bugs": {
+        "url": "https://github.com/zhengrenzhe/vscode-Nyan-Cat/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zhengrenzhe/vscode-Nyan-Cat.git"
+    },
+    "version": "0.0.3",
     "publisher": "zhengrenzhe",
     "engines": {
         "vscode": "^1.19.0"

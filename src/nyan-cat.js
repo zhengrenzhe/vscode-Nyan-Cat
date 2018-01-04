@@ -1,13 +1,19 @@
 ; (() => {
+    const nameList = ["GB", "bday", "breakfast", "daft", "dub", "easter", "glitch", "grumpy", "jacksnyan", "jazz", "melonbird", "mexinyan", "mummy", "nyan", "nyancoin", "nyaninja", "paddy", "pikanyan", "pumpkin", "rasta", "retro", "sadnyan", "slomo", "starsheep", "tacnayn", "tacodog", "technyancolor", "uhmurica", "vday", "xmas", "zombie"];
+
     let timer = setInterval(() => {
         let nyan = document.querySelector('.statusbar-item span[title="Nyan Cat"]');
         
         if (!nyan) return;
         else clearInterval(timer);
-        
-        injectCSS(NyanCatStyles()[window.NyanCatConfiguration.name]);
+
         nyan = nyan.parentElement;
-        nyan.classList.add('nyan-cat', `nyan-cat-${window.NyanCatConfiguration.name}`);
+
+        let name = window.NyanCatConfiguration.name;
+        if (name === 'random') name = nameList[Math.floor(Math.random() * nameList.length)];
+        nyan.classList.add('nyan-cat', `nyan-cat-${name}`);
+        
+        injectCSS(NyanCatStyles()[name]);
         nyan.style.backgroundColor = window.NyanCatConfiguration.backgroundColor;
     }, 600);
 
