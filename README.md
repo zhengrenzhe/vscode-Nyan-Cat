@@ -2,7 +2,7 @@
 
 Put Nyan Cat in your VSCode!
 
-Because of the api restrict, Nyan Cat now only show up in your vscode status bar, but more will be done in the future.
+Because of the API restrict, Nyan Cat now only show up in your VSCode status bar, but more will be done in the future.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/zhengrenzhe/vscode-Nyan-Cat/master/src/imgs/r.gif" alt="VSCode"/>
@@ -15,9 +15,25 @@ Because of the api restrict, Nyan Cat now only show up in your vscode status bar
 ext install nyan-cat
 ```
 
-**IMPORTANT!!**
+**IMPORTANT 1**
 
 After install, press `shift + command + p`, search `Nyan Cat: refresh status bar` and execute it, Nyan Cat will display on your status bar.
+
+安装完成后，按下`shift + command + p`，输入`Nyan Cat: refresh status bar`并执行，Nyan Cat将显示在你的状态栏里。
+
+**IMPORTANT 2**
+
+After install, VSCode maybe display `Your Code installation appears to be corrupt. Please reinstall`, this is because of API restrict, the extension must be inject js file into VSCode to perform related functions, this led to VSCode this prompt, but it's harmless, will not have any effect on VSCode, so just ignore it.
+
+在安装后，VSCode可能会提示`VSCode 安装文件被破坏，请重新安装`，这是由于API限制的原因，扩展必须注入js文件到VSCode里来执行相关功能，这导致了出现这个提示，但它是无害的，这不会对VSCode有任何影响，可以直接忽略。
+
+## Uninstall
+
+Before you actually uninstall, press `shift + command + p`, search `Nyan Cat: ready to uninstall Nyan Cat` and execute it, 
+this will restore the file what you modified during the installation, it's important.
+
+在实际卸载前，按下`shift + command + p`，输入`Nyan Cat: ready to uninstall Nyan Cat`并执行，这将恢复在安装过程中修改的文件，这一步很重要。
+
 
 ## Features
 
