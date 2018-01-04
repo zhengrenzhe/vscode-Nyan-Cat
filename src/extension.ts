@@ -57,7 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
         const config = vscode.workspace.getConfiguration('NyanCat');
         const inject = `<script id="NyanCatConfiguration">window.NyanCatConfiguration = ${JSON.stringify(config)}</script>`;
         let htmlFileContent = fs.readFileSync(htmlFilePath, 'utf-8');
-        htmlFileContent = htmlFileContent.replace(/<script.*NyanCatConfiguration.*script>/, '');
+        htmlFileContent = htmlFileContent.replace(/\t?<script.*NyanCatConfiguration.*script>\n?/g, '');
         htmlFileContent = htmlFileContent.replace('</body>', `${inject}\n</body>`);
         fs.writeFileSync(htmlFilePath, htmlFileContent, 'utf-8');
     }
