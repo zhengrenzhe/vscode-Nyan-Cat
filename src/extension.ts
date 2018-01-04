@@ -8,17 +8,18 @@ import * as f from 'file-url';
 export function activate(context: vscode.ExtensionContext) {
     const htmlDirPath = normalize(`${dirname(require.main.filename)}/vs/workbench/electron-browser/bootstrap`);
     const htmlFilePath = normalize(`${htmlDirPath}/index.html`);
+    const htmlBackupPath = normalize(`${htmlDirPath}/index-nyan-cat-backup.html`);
 
     // backup index.html
     try {
-        fs.statSync(normalize(`${htmlDirPath}/index-nyan-cat-backup.html`));
+        fs.statSync(htmlBackupPath);
     } catch (err) {
         if (err) {
-            fs.writeFileSync(normalize(`${htmlDirPath}/index-nyan-cat-backup.html`), fs.readFileSync(htmlFilePath));
+            fs.writeFileSync(htmlBackupPath, fs.readFileSync(htmlFilePath));
         }
     }
 
-    // inject js, add unsafe-inline csp 
+    // inject js, add unsafe-inline csp
     let htmlFileContent = fs.readFileSync(htmlFilePath, 'utf-8');
     if (!htmlFileContent.includes('nyan-cat.js')) {
         const inject = `<script src="${f(__dirname + '/nyan-cat.js')}"></script>`;
@@ -35,7 +36,7 @@ export function activate(context: vscode.ExtensionContext) {
     // inject configuration
     injectConfiguration();
 
-    // manual inject configuration 
+    // manual inject configuration command
     let refreshCMD = vscode.commands.registerCommand('extension.NyanCatRefresh', () => {
         injectConfiguration();
         vscode.window.showInformationMessage("Nyan Cat: refresh successful, reload to take effect.", 'Reload Window').then(msg => {
@@ -43,7 +44,14 @@ export function activate(context: vscode.ExtensionContext) {
         });
     });
 
+    // uninstall command
+    let uninstallCMD = vscode.commands.registerCommand('extension.NyanCatUninstall', () => {
+        prepareUninstall();
+        vscode.window.showInformationMessage('Ready to uninstall Nyan Cat completed!');
+    });
+
     context.subscriptions.push(refreshCMD);
+    context.subscriptions.push(uninstallCMD);
 
     function injectConfiguration() {
         const config = vscode.workspace.getConfiguration('NyanCat');
@@ -52,6 +60,11 @@ export function activate(context: vscode.ExtensionContext) {
         htmlFileContent = htmlFileContent.replace(/<script.*NyanCatConfiguration.*script>/, '');
         htmlFileContent = htmlFileContent.replace('</body>', `${inject}\n</body>`);
         fs.writeFileSync(htmlFilePath, htmlFileContent, 'utf-8');
+    }
+
+    function prepareUninstall() {
+        fs.unlinkSync(htmlFilePath);
+        fs.renameSync(htmlBackupPath, htmlFilePath);
     }
 }
 

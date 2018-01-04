@@ -22,6 +22,10 @@
             {
                 "command": "extension.NyanCatRefresh",
                 "title": "Nyan Cat: refresh status bar"
+            },
+            {
+                "command": "extension.NyanCatUninstall",
+                "title": "Nyan Cat: ready to uninstall Nyan Cat"
             }
         ],
         "configuration":{
