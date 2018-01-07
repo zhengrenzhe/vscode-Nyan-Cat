@@ -37,9 +37,23 @@ After upgrade extension, you must be press `shift + command + p`, search `Nyan C
 
 在更新Nyan Cat后，你必须按下`shift + command + p`，输入`Nyan Cat: reload Nyan Cat`并执行来手动更新注入代码。
 
+**IMPORTANT 4**
+
+For Linux users, you may receive error when run the command, it shows `xxx command not found`, this because of the VSCode extension have no permissions to modify the VSCode source code on Linux, it leds this problem, so you can run VSCode with sudo, for example:
+```
+sudo code --user-data-dir=~
+```
+Then rerun the command, and close this VSCode instance, then reopen VSCode by ordinary user, you can see the command came into effect.
+
+对于Linux用户，当运行Nyan Cat的命令时可能会收到 `xxx command not found`的错误，这是因为VSCode扩展在Linux上没有修改VSCode源代码的权限，这导致了这个错误，所以你可以通过sudo运行VSCode，例如
+```
+sudo code --user-data-dir=~
+```
+重新运行刚刚出错的命令，然后关闭这个VSCode实例，以普通用户重新打开VSCode，这是就能看到刚刚的命令生效了。
+
 ## Uninstall
 
-Before you actually uninstall, you must be press `shift + command + p`, search `Nyan Cat: ready to uninstall Nyan Cat` and execute it, 
+Before you actually uninstall, you must be press `shift + command + p`, search `Nyan Cat: ready to uninstall Nyan Cat` and execute it,
 this will restore the file what you modified during the installation, it's important.
 
 在实际卸载前，按下`shift + command + p`，输入`Nyan Cat: ready to uninstall Nyan Cat`并执行，这将恢复在安装过程中修改的文件，这一步很重要。
