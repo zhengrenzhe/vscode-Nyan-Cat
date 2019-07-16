@@ -1,11 +1,11 @@
 {
     "name": "nyan-cat",
     "displayName": "Nyan Cat",
-    "description": "Nyan Cat for vscode",
+    "description": "Nyan Cat for VS Code",
     "author":{
         "name": "zhengrenzhe",
         "email": "zhengrenzhe.niujie@gmail.com",
-        "url": "http://zrz0f.com"
+        "url": "http://zhengrenzhe.com"
     },
     "homepage": "https://github.com/zhengrenzhe/vscode-Nyan-Cat",
     "bugs": {
@@ -15,10 +15,10 @@
         "type": "git",
         "url": "https://github.com/zhengrenzhe/vscode-Nyan-Cat.git"
     },
-    "version": "0.0.6",
+    "version": "0.0.7",
     "publisher": "zhengrenzhe",
     "engines": {
-        "vscode": "^1.19.0"
+        "vscode": "^1.36.1"
     },
     "icon": "icon.png",
     "categories": [
@@ -69,12 +69,12 @@
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^7.0.43",
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6"
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^12.6.3",
+        "typescript": "^3.5.3",
+        "vscode": "^1.1.35"
     },
     "dependencies": {
-        "file-url": "^2.0.2"
+        "file-url": "^3.0.0"
     }
 }
