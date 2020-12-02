@@ -2,31 +2,35 @@
     const nameList = ["GB", "bday", "breakfast", "easter", "grumpy", "jacksnyan", "jazz", "mexinyan", "mummy", "nyan", "nyancoin", "nyaninja", "paddy", "pikanyan", "sadnyan", "slomo", "technyancolor", "uhmurica", "vday", "xmas", "zombie"];
 
     let timer = setInterval(() => {
-        let nyan = document.querySelector('.statusbar-item span[title="Nyan Cat"]');
-        
-        if (!nyan) return;
+        const statusItem = document.querySelector('div[title="Nyan Cat"] > a');
+
+        if (!statusItem) return;
         else clearInterval(timer);
 
-        nyan = nyan.parentElement;
+        nyan = document.createElement("span");
 
         let name = window.NyanCatConfiguration.name;
         if (name === 'random') name = nameList[Math.floor(Math.random() * nameList.length)];
         nyan.classList.add('nyan-cat', `nyan-cat-${name}`);
-        
+
         injectCSS(NyanCatStyles()[name]);
         nyan.style.backgroundColor = window.NyanCatConfiguration.backgroundColor;
+        statusItem.appendChild(nyan);
     }, 600);
 
     function injectCSS(dataUrl) {
         const style = document.createElement('STYLE');
         style.innerHTML = `
             .nyan-cat{
+                width: 50px;
+                height: 100%;
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-image: url(${dataUrl});
             }
             .nyan-cat-bday{
-                background-position-y: -1px;
+                background-position-y: -7px;
+                background-size: 42px;
             }
             .nyan-cat-breakfast{
                 background-position-y: 4px;
