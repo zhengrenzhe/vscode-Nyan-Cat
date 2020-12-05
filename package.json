@@ -1,80 +1,80 @@
 {
-    "name": "nyan-cat",
-    "displayName": "Nyan Cat",
-    "description": "Nyan Cat for VS Code",
-    "author":{
-        "name": "zhengrenzhe",
-        "email": "zhengrenzhe.niujie@gmail.com",
-        "url": "http://zhengrenzhe.com"
-    },
-    "homepage": "https://github.com/zhengrenzhe/vscode-Nyan-Cat",
-    "bugs": {
-        "url": "https://github.com/zhengrenzhe/vscode-Nyan-Cat/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/zhengrenzhe/vscode-Nyan-Cat.git"
-    },
-    "version": "0.0.7",
-    "publisher": "zhengrenzhe",
-    "engines": {
-        "vscode": "^1.36.1"
-    },
-    "icon": "icon.png",
-    "categories": [
-        "Other"
+  "name": "nyan-cat",
+  "displayName": "Nyan Cat",
+  "description": "Nyan Cat for VS Code",
+  "author": {
+    "name": "zhengrenzhe",
+    "email": "zhengrenzhe.niujie@gmail.com",
+    "url": "http://zhengrenzhe.com"
+  },
+  "homepage": "https://github.com/zhengrenzhe/vscode-Nyan-Cat",
+  "bugs": {
+    "url": "https://github.com/zhengrenzhe/vscode-Nyan-Cat/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhengrenzhe/vscode-Nyan-Cat.git"
+  },
+  "version": "0.0.8",
+  "publisher": "zhengrenzhe",
+  "engines": {
+    "vscode": "^1.36.1"
+  },
+  "icon": "icon.png",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "keywords": [
+    "Nyan Cat"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.NyanCatRefresh",
+        "title": "Nyan Cat: refresh status bar"
+      },
+      {
+        "command": "extension.NyanCatUninstall",
+        "title": "Nyan Cat: ready to uninstall Nyan Cat"
+      },
+      {
+        "command": "extension.NyanCatReload",
+        "title": "Nyan Cat: reload Nyan Cat"
+      }
     ],
-    "activationEvents": [
-        "*"
-    ],
-    "keywords": [
-        "Nyan Cat"
-    ],
-    "contributes": {
-        "commands":[
-            {
-                "command": "extension.NyanCatRefresh",
-                "title": "Nyan Cat: refresh status bar"
-            },
-            {
-                "command": "extension.NyanCatUninstall",
-                "title": "Nyan Cat: ready to uninstall Nyan Cat"
-            },
-            {
-                "command": "extension.NyanCatReload",
-                "title": "Nyan Cat: reload Nyan Cat"
-            }
-        ],
-        "configuration":{
-            "title": "Nyan Cat Configuration",
-            "properties": {
-                "NyanCat.backgroundColor":{
-                    "title": "Nyan Cat area background color, default is transparent, it accepts any css color string",
-                    "type": "string",
-                    "default": "transparent"
-                },
-                "NyanCat.name":{
-                    "title": "what you want to show the name",
-                    "type": "string",
-                    "default": "bday"
-                }
-            }
+    "configuration": {
+      "title": "Nyan Cat Configuration",
+      "properties": {
+        "NyanCat.backgroundColor": {
+          "title": "Nyan Cat area background color, default is transparent, it accepts any css color string",
+          "type": "string",
+          "default": "transparent"
+        },
+        "NyanCat.name": {
+          "title": "what you want to show the name",
+          "type": "string",
+          "default": "bday"
         }
-    },
-    "main": "./out/extension",
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./ && cp ./src/nyan-cat.js ./out/nyan-cat.js",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install"
-    },
-    "devDependencies": {
-        "@types/mocha": "^5.2.7",
-        "@types/node": "^12.6.3",
-        "typescript": "^3.5.3",
-        "vscode": "^1.1.35"
-    },
-    "dependencies": {
-        "file-url": "^3.0.0"
+      }
     }
+  },
+  "main": "./out/extension",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./ && cp ./src/nyan-cat.js ./out/nyan-cat.js",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.6.3",
+    "typescript": "^3.5.3",
+    "vscode": "^1.1.35"
+  },
+  "dependencies": {
+    "file-url": "^3.0.0"
+  }
 }
