@@ -20,7 +20,7 @@
 
     function injectCSS(dataUrl) {
         const style = document.createElement('STYLE');
-        style.innerHTML = `
+        style.innerText = `
             .nyan-cat{
                 width: 50px;
                 height: 100%;
