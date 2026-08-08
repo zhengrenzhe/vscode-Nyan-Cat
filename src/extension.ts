@@ -13,7 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
     bar_item.show()
 
     const htmlDirPath = normalize(`${dirname(require.main.filename)}/vs/code/electron-browser/workbench`);
-    const htmlFilePath = normalize(`${htmlDirPath}/workbench.html`);
+    const htmlFilePath = normalize(`${htmlDirPath}/index.html`);
     const htmlBackupPath = normalize(`${htmlDirPath}/index-nyan-cat-backup.html`);
 
     // backup index.html
