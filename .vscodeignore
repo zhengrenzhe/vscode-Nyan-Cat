@@ -3,6 +3,7 @@
 out/test/**
 out/**/*.map
 src/**
+!src/imgs/{GB,bday,breakfast,easter,grumpy,jacksnyan,jazz,mexinyan,mummy,nyan,nyancoin,nyaninja,paddy,pikanyan,sadnyan,slomo,technyancolor,uhmurica,vday,xmas,zombie}.gif
 .gitignore
 tsconfig.json
 vsc-extension-quickstart.md

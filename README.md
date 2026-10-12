@@ -1,9 +1,5 @@
 # Nyan Cat for VSCode
 
-[![](https://vsmarketplacebadge.apphb.com/version-short/zhengrenzhe.nyan-cat.svg)](https://marketplace.visualstudio.com/items?itemName=zhengrenzhe.nyan-cat)
-[![](https://vsmarketplacebadge.apphb.com/installs-short/zhengrenzhe.nyan-cat.svg)](https://marketplace.visualstudio.com/items?itemName=zhengrenzhe.nyan-cat)
-[![](https://vsmarketplacebadge.apphb.com/rating-short/zhengrenzhe.nyan-cat.svg)](https://marketplace.visualstudio.com/items?itemName=zhengrenzhe.nyan-cat)
-
 Put Nyan Cat in your VSCode!
 
 Because of the API restrict, Nyan Cat now only show up in your VSCode status bar, but more will be done in the future.
