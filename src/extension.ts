@@ -5,6 +5,8 @@ import * as path from 'path';
 
 const STATUS_ITEM_ID = 'status';
 const SCRIPT_FILE = 'nyan-cat.js';
+// the script written next to workbench.html: `nyan-cat.<hash>.js` (`nyan-cat.js` in older versions)
+const INJECTED_SCRIPT = /^nyan-cat(\.[0-9a-f]{8})?\.js$/;
 // packaged through .vscodeignore, keep both in sync with the NyanCat.name options
 const IMAGE_DIR = 'src/imgs';
 const MARK_START = '<!-- nyan-cat-start -->';
@@ -31,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
         return;
     }
     const htmlFilePath: string = workbenchHtml;
-    const scriptFilePath = path.join(path.dirname(htmlFilePath), SCRIPT_FILE);
+    const workbenchDir = path.dirname(htmlFilePath);
 
     // inject script & configuration
     if (run(install)) {
@@ -113,16 +115,20 @@ export function activate(context: vscode.ExtensionContext) {
     function install(): boolean {
         let changed = false;
 
+        // only workbench.html is served with no-cache, so the content hash is part of the script file name:
+        // a name always holds the same content, a cached script can't go stale (a fixed name + version query could be
+        // cached while another extension host, e.g. one still running an older version, was rewriting the file)
         const script = buildScript();
-        if (readFileIfExists(scriptFilePath) !== script) {
-            fs.writeFileSync(scriptFilePath, script, 'utf-8');
+        const version = crypto.createHash('md5').update(script).digest('hex').slice(0, 8);
+        const scriptName = `nyan-cat.${version}.js`;
+        const scriptPath = path.join(workbenchDir, scriptName);
+        if (readFileIfExists(scriptPath) !== script) {
+            fs.writeFileSync(scriptPath, script, 'utf-8');
             changed = true;
         }
 
-        // loaded from the same origin as workbench.js, so the CSP doesn't need 'unsafe-inline'.
-        // only workbench.html is served with no-cache, the version query makes a reload pick up the new script
-        const version = crypto.createHash('md5').update(script).digest('hex').slice(0, 8);
-        const inject = `${MARK_START}<script src="./${SCRIPT_FILE}?v=${version}"></script>${MARK_END}`;
+        // loaded from the same origin as workbench.js, so the CSP doesn't need 'unsafe-inline'
+        const inject = `${MARK_START}<script src="./${scriptName}"></script>${MARK_END}`;
         const html = fs.readFileSync(htmlFilePath, 'utf-8');
         if (!html.includes(inject)) {
             const newHtml = removeInjection(html).replace('</html>', `${inject}\n</html>`);
@@ -130,18 +136,28 @@ export function activate(context: vscode.ExtensionContext) {
             changed = true;
         }
 
+        removeInjectedScripts(scriptName);
         return changed;
     }
 
-    /** Removes the injected script reference & file, returns true when done. */
+    /** Removes the injected script reference & files, returns true when done. */
     function uninstall(): boolean {
         const html = fs.readFileSync(htmlFilePath, 'utf-8');
         const newHtml = removeInjection(html);
         if (newHtml !== html) {
             fs.writeFileSync(htmlFilePath, newHtml, 'utf-8');
         }
-        fs.rmSync(scriptFilePath, { force: true });
+        removeInjectedScripts();
         return true;
+    }
+
+    /** Deletes the scripts written next to workbench.html (including the `nyan-cat.js` of older versions). */
+    function removeInjectedScripts(keep?: string) {
+        for (const file of fs.readdirSync(workbenchDir)) {
+            if (INJECTED_SCRIPT.test(file) && file !== keep) {
+                fs.rmSync(path.join(workbenchDir, file), { force: true });
+            }
+        }
     }
 
     function buildScript(): string {
