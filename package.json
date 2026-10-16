@@ -18,63 +18,101 @@
   "version": "0.0.8",
   "publisher": "zhengrenzhe",
   "engines": {
-    "vscode": "^1.36.1"
+    "vscode": "^1.140.0"
   },
   "icon": "icon.png",
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
+  "extensionKind": [
+    "ui"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
   "keywords": [
     "Nyan Cat"
   ],
   "contributes": {
     "commands": [
       {
+        "command": "extension.NyanCatSelect",
+        "category": "Nyan Cat",
+        "title": "Select Nyan Cat"
+      },
+      {
         "command": "extension.NyanCatRefresh",
-        "title": "Nyan Cat: refresh status bar"
+        "category": "Nyan Cat",
+        "title": "Refresh Status Bar"
       },
       {
         "command": "extension.NyanCatUninstall",
-        "title": "Nyan Cat: ready to uninstall Nyan Cat"
+        "category": "Nyan Cat",
+        "title": "Ready to Uninstall Nyan Cat"
       },
       {
         "command": "extension.NyanCatReload",
-        "title": "Nyan Cat: reload Nyan Cat"
+        "category": "Nyan Cat",
+        "title": "Reload Nyan Cat"
       }
     ],
     "configuration": {
-      "title": "Nyan Cat Configuration",
+      "title": "Nyan Cat",
       "properties": {
         "NyanCat.backgroundColor": {
-          "title": "Nyan Cat area background color, default is transparent, it accepts any css color string",
+          "description": "Nyan Cat area background color, default is transparent, it accepts any css color string",
           "type": "string",
           "default": "transparent"
         },
         "NyanCat.name": {
-          "title": "what you want to show the name",
+          "description": "Which Nyan Cat to show, `random` picks a different one on every window load",
           "type": "string",
+          "enum": [
+            "GB",
+            "bday",
+            "breakfast",
+            "easter",
+            "grumpy",
+            "jacksnyan",
+            "jazz",
+            "mexinyan",
+            "mummy",
+            "nyan",
+            "nyancoin",
+            "nyaninja",
+            "paddy",
+            "pikanyan",
+            "sadnyan",
+            "slomo",
+            "technyancolor",
+            "uhmurica",
+            "vday",
+            "xmas",
+            "zombie",
+            "random"
+          ],
           "default": "bday"
         }
       }
     }
   },
-  "main": "./out/extension",
+  "main": "./out/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./ && cp ./src/nyan-cat.js ./out/nyan-cat.js",
+    "compile": "tsc -p ./ && node -e \"require('fs').copyFileSync('src/nyan-cat.js', 'out/nyan-cat.js')\"",
     "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install"
+    "package": "vsce package"
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.6.3",
-    "typescript": "^3.5.3",
-    "vscode": "^1.1.35"
-  },
-  "dependencies": {
-    "file-url": "^3.0.0"
+    "@types/node": "^22.20.5",
+    "@types/vscode": "^1.140.0",
+    "@vscode/vsce": "^4.0.0",
+    "typescript": "^7.0.2"
   }
 }
